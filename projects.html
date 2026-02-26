@@ -1,120 +1,813 @@
 <!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="Portfolio de WANE Papa Seydou - Projets Data Science, Machine Learning et IA" />
-        <meta name="author" content="WANE Papa Seydou" />
-        <title>WANE Papa Seydou - Projets</title>
-                <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-                <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet" />
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css" rel="stylesheet" />
-                <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body class="d-flex flex-column h-100 bg-light">
-        <main class="flex-shrink-0">
-                        <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
-                <div class="container px-5">
-                    <a class="navbar-brand" href="index.html"><span class="fw-bolder text-primary">WANE Papa Seydou</span></a>
-                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 small fw-bolder">
-                            <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
-                            <li class="nav-item"><a class="nav-link" href="resume.html">Resume</a></li>
-                            <li class="nav-item"><a class="nav-link" href="projects.html">Projects</a></li>
-                            <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-                        <section class="py-5">
-                <div class="container px-5 mb-5">
-                    <div class="text-center mb-5">
-                        <h1 class="display-5 fw-bolder mb-0"><span class="text-gradient d-inline">Projets</span></h1>
-                    </div>
-                    <div class="row gx-5 justify-content-center">
-                        <div class="col-lg-11 col-xl-9 col-xxl-8">
-                                           <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                    <div class="card-body p-0">
-                        <div class="d-flex align-items-center">
-                            <div class="p-5">
-                                <h2 class="fw-bolder">Projet SmartRH: Solution de Gestion Intelligente du Recrutement</h2>
-                                <p>
-[cite_start]                                    Développement d'une plateforme RH intelligente pour digitaliser et automatiser le processus de recrutement (**Solution ATS**)[cite: 37, 102, 103]. [cite_start]Implémentation de la création d'appels à candidatures avec pondération des compétences, tableau de bord interactif [cite: 104, 105][cite_start], et classement automatique des CV selon la correspondance aux exigences[cite: 107].
-                                </p>
-                                <a class="btn btn-outline-primary btn-sm" href="https://github.com/SeydouWane/ProjetSmartRH" target="_blank">Voir sur GitHub <i class="bi bi-box-arrow-up-right"></i></a>
-                            </div>
-                            <img class="img-fluid" src="css/smartrh.jpg" alt="SmartRH Project Mockup" style="max-width: 250px" />
-                        </div>
-                    </div>
-                </div>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Projets de Papa Seydou WANE – Data Science, IA, Web, Big Data." />
+  <title>Papa Seydou WANE — Projets</title>
 
-                                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                    <div class="card-body p-0">
-                        <div class="d-flex align-items-center">
-                            <img class="img-fluid" src="css/medical_ai.jpg" alt="Medical Imaging AI" style="max-width: 250px" />
-                            <div class="p-5">
-                                <h2 class="fw-bolder">Deep Learning Appliqué à l'Imagerie Médicale</h2>
-                                <p>
-[cite_start]                                    Conception d'un algorithme intelligent pour la détection de la Tuberculose sur frottis sanguins [cite: 97] [cite_start](Collecte et Annotation de données sur Roboflow [cite: 98, 100]). [cite_start]Mise en œuvre d'un modèle pour la prédiction de tumeur cérébrale (**IRM**)[cite: 112, 114]. [cite_start]Publication de l'article : *SenTumorNet: A Lightweight 3D U-Net Model...*[cite: 115].
-                                </p>
-                                <a class="btn btn-outline-primary btn-sm" href="https://github.com/SeydouWane/medical-ai-project" target="_blank">Détails et Code <i class="bi bi-box-arrow-up-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
 
-                                <div class="card overflow-hidden shadow rounded-4 border-0 mb-5">
-                    <div class="card-body p-0">
-                        <div class="d-flex align-items-center">
-                            <div class="p-5">
-                                <h2 class="fw-bolder">Low Chatbot de Programme (NLP/Embeddings)</h2>
-                                <p>
-[cite_start]                                    Conception et mise en place d'un Chatbot d'information pour un programme, basé sur le **Traitement Naturel du Langage (NLP)** et les **Embeddings**[cite: 39]. Ce système a pour objectif de répondre aux questions fréquentes et de diriger les utilisateurs vers les ressources appropriées.
-                                </p>
-                                <a class="btn btn-outline-primary btn-sm" href="https://github.com/SeydouWane/chatbot-nlp" target="_blank">Voir le Projet <i class="bi bi-box-arrow-up-right"></i></a>
-                            </div>
-                            <img class="img-fluid" src="css/chatbot.jpg" alt="Low Chatbot NLP" style="max-width: 250px" />
-                        </div>
-                    </div>
-                </div>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-                <div class="text-center mt-5">
-                    <p class="lead">Retrouvez tous mes autres projets (Data, Cloud, ML/DL) sur mon profil GitHub.</p>
-                    <a class="btn btn-primary btn-lg px-5 py-3" href="https://github.com/SeydouWane/" target="_blank">
-                        Mon GitHub <i class="bi bi-github"></i>
-                    </a>
-                </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-                        <section class="py-5 bg-gradient-primary-to-secondary text-white">
-                <div class="container px-5 my-5">
-                    <div class="text-center">
-                        <h2 class="display-4 fw-bolder mb-4">Let's build something together</h2>
-                        <a class="btn btn-outline-light btn-lg px-5 py-3 fs-6 fw-bolder" href="contact.html">Contact me</a>
-                    </div>
-                </div>
-            </section>
-        </main>
-                <footer class="bg-white py-4 mt-auto">
-            <div class="container px-5">
-                <div class="row align-items-center justify-content-between flex-column flex-sm-row">
-                    <div class="col-auto"><div class="small m-0">Copyright &copy; WANE Website 2025</div></div>
-                    <div class="col-auto">
-                        <a class="small" href="#!">Privacy</a>
-                        <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Terms</a>
-                        <span class="mx-1">&middot;</span>
-                        <a class="small" href="#!">Contact</a>
-                    </div>
-                </div>
-            </div>
-        </footer>
-                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-                <script src="js/scripts.js"></script>
-    </body>
+    :root {
+      --bg: #080c10;
+      --surface: #0d1117;
+      --surface2: #131b24;
+      --surface3: #192130;
+      --border: rgba(255,255,255,0.07);
+      --accent: #00e5a0;
+      --accent2: #0ea5e9;
+      --accent3: #f59e0b;
+      --accent4: #e879f9;
+      --text: #e8edf3;
+      --muted: #6b7fa3;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* ─── NAV ───────────────────────────────────── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1.25rem 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(8,12,16,0.85);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--text); text-decoration: none;
+    }
+    .nav-logo span { color: var(--accent); }
+    .nav-links { display: flex; gap: 2.5rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--muted); text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--accent); }
+    .nav-cta {
+      font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--bg); background: var(--accent);
+      padding: 0.55rem 1.4rem; border-radius: 100px;
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* ─── PAGE HEADER ───────────────────────────── */
+    .page-header {
+      padding: 8rem 2.5rem 4rem;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      position: relative; overflow: hidden;
+    }
+    .page-header::after {
+      content: '';
+      position: absolute;
+      bottom: -1px; left: 0; right: 0; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--accent), transparent);
+    }
+    .page-header::before {
+      content: '';
+      position: absolute;
+      top: 0; right: -5%;
+      width: 600px; height: 400px;
+      background: radial-gradient(ellipse, rgba(0,229,160,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .page-header-inner {
+      max-width: 1200px; margin: 0 auto;
+    }
+    .page-eyebrow {
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.6rem;
+    }
+    .page-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 800; letter-spacing: -0.04em; line-height: 1.05;
+    }
+    .page-subtitle {
+      font-size: 1rem; color: var(--muted);
+      margin-top: 0.75rem; max-width: 600px;
+    }
+
+    /* ─── FILTER BAR ────────────────────────────── */
+    .filter-bar {
+      max-width: 1200px; margin: 3rem auto 0;
+      padding: 0 2.5rem;
+      display: flex; gap: 0.6rem; flex-wrap: wrap;
+    }
+    .filter-btn {
+      font-size: 0.78rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      padding: 0.45rem 1.1rem; border-radius: 100px;
+      border: 1px solid var(--border);
+      background: transparent; color: var(--muted);
+      cursor: pointer; transition: all 0.2s;
+    }
+    .filter-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .filter-btn.active {
+      background: var(--accent); color: var(--bg);
+      border-color: var(--accent);
+    }
+
+    /* ─── PROJECTS GRID ─────────────────────────── */
+    .projects-container {
+      max-width: 1200px; margin: 0 auto;
+      padding: 3rem 2.5rem 6rem;
+    }
+
+    /* ── FEATURED (full width) ── */
+    .project-featured {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 360px;
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative;
+    }
+    .project-featured:hover { border-color: rgba(0,229,160,0.35); transform: translateY(-3px); }
+
+    .featured-badge {
+      position: absolute;
+      top: 1.5rem; left: 1.5rem;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      background: var(--accent); color: var(--bg);
+      padding: 0.3rem 0.8rem; border-radius: 100px;
+      z-index: 2;
+    }
+
+    .project-featured-visual {
+      background: var(--surface2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+      min-height: 360px;
+    }
+
+    /* Africa map SVG visual */
+    .africa-visual {
+      position: relative;
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+    }
+
+    .africa-bg-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(0,229,160,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,229,160,0.04) 1px, transparent 1px);
+      background-size: 30px 30px;
+    }
+
+    .africa-glow {
+      position: absolute;
+      width: 250px; height: 250px;
+      background: radial-gradient(circle, rgba(0,229,160,0.15) 0%, transparent 70%);
+    }
+
+    .africa-map-icon {
+      font-size: 7rem;
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 0 30px rgba(0,229,160,0.4));
+      animation: pulse-map 3s ease-in-out infinite;
+    }
+    @keyframes pulse-map {
+      0%, 100% { filter: drop-shadow(0 0 20px rgba(0,229,160,0.3)); }
+      50% { filter: drop-shadow(0 0 45px rgba(0,229,160,0.6)); }
+    }
+
+    .floating-pins {
+      position: absolute; inset: 0; pointer-events: none;
+    }
+    .pin {
+      position: absolute;
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 0 0 8px rgba(0,229,160,0.8);
+      animation: blink 2s ease-in-out infinite;
+    }
+    .pin::after {
+      content: '';
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,229,160,0.3);
+      animation: ripple 2s ease-in-out infinite;
+    }
+    .pin:nth-child(1) { top: 25%; left: 30%; animation-delay: 0s; }
+    .pin:nth-child(2) { top: 40%; left: 45%; animation-delay: 0.4s; }
+    .pin:nth-child(3) { top: 55%; left: 38%; animation-delay: 0.8s; }
+    .pin:nth-child(4) { top: 30%; left: 55%; animation-delay: 1.2s; }
+    .pin:nth-child(5) { top: 60%; left: 55%; animation-delay: 0.6s; }
+    .pin:nth-child(6) { top: 70%; left: 42%; animation-delay: 1.0s; }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    @keyframes ripple {
+      0% { transform: scale(1); opacity: 1; }
+      100% { transform: scale(3); opacity: 0; }
+    }
+
+    /* stat counters in visual */
+    .visual-stats {
+      position: absolute;
+      bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+      display: flex; gap: 1.5rem;
+    }
+    .vs-item {
+      text-align: center;
+      background: rgba(8,12,16,0.8);
+      border: 1px solid rgba(0,229,160,0.2);
+      border-radius: 10px;
+      padding: 0.5rem 1rem;
+      backdrop-filter: blur(10px);
+    }
+    .vs-num {
+      font-family: var(--font-display);
+      font-size: 1.2rem; font-weight: 800;
+      color: var(--accent); line-height: 1;
+    }
+    .vs-label { font-size: 0.65rem; color: var(--muted); margin-top: 0.1rem; }
+
+    .project-featured-content {
+      padding: 3rem 2.5rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+
+    .proj-category {
+      font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.6rem;
+    }
+
+    .proj-title {
+      font-family: var(--font-display);
+      font-size: 1.7rem; font-weight: 800;
+      letter-spacing: -0.03em; line-height: 1.15;
+      color: var(--text); margin-bottom: 1rem;
+    }
+
+    .proj-desc {
+      font-size: 0.92rem; color: var(--muted);
+      font-weight: 300; margin-bottom: 1.25rem;
+      line-height: 1.7;
+    }
+    .proj-desc strong { color: var(--text); font-weight: 500; }
+
+    .proj-highlights {
+      list-style: none;
+      display: flex; flex-direction: column;
+      gap: 0.4rem; margin-bottom: 1.5rem;
+    }
+    .proj-highlights li {
+      font-size: 0.85rem; color: var(--muted);
+      padding-left: 1.2rem; position: relative;
+    }
+    .proj-highlights li::before {
+      content: '✓';
+      position: absolute; left: 0;
+      color: var(--accent); font-size: 0.75rem;
+    }
+    .proj-highlights li strong { color: var(--text); font-weight: 500; }
+
+    .proj-tags {
+      display: flex; flex-wrap: wrap; gap: 0.4rem;
+      margin-bottom: 1.75rem;
+    }
+    .proj-tag {
+      font-size: 0.7rem; font-weight: 600;
+      padding: 0.25rem 0.65rem; border-radius: 6px;
+      background: rgba(255,255,255,0.04);
+      color: var(--muted); border: 1px solid var(--border);
+    }
+
+    .proj-actions { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    .btn-primary {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.85rem; font-weight: 600;
+      color: var(--bg); background: var(--accent);
+      padding: 0.75rem 1.75rem; border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 0 25px rgba(0,229,160,0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 35px rgba(0,229,160,0.35); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.85rem; font-weight: 500;
+      color: var(--text); background: transparent;
+      border: 1px solid var(--border);
+      padding: 0.75rem 1.75rem; border-radius: 100px;
+      text-decoration: none; transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* ── PROJECTS GRID (2 col) ── */
+    .proj-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .proj-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.25s, transform 0.25s;
+      display: flex; flex-direction: column;
+    }
+    .proj-card:hover { border-color: rgba(0,229,160,0.3); transform: translateY(-4px); }
+
+    .proj-card-visual {
+      height: 160px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 4rem;
+      position: relative; overflow: hidden;
+    }
+
+    .proj-card-visual.blue { background: linear-gradient(135deg, rgba(14,165,233,0.12), rgba(14,165,233,0.03)); }
+    .proj-card-visual.amber { background: linear-gradient(135deg, rgba(245,158,11,0.12), rgba(245,158,11,0.03)); }
+    .proj-card-visual.purple { background: linear-gradient(135deg, rgba(232,121,249,0.12), rgba(232,121,249,0.03)); }
+    .proj-card-visual.green { background: linear-gradient(135deg, rgba(0,229,160,0.12), rgba(0,229,160,0.03)); }
+    .proj-card-visual.red { background: linear-gradient(135deg, rgba(239,68,68,0.12), rgba(239,68,68,0.03)); }
+
+    .proj-card-visual::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+
+    .proj-card-body {
+      padding: 1.5rem;
+      display: flex; flex-direction: column; flex: 1;
+    }
+
+    .proj-card-category {
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 0.4rem;
+    }
+    .proj-card-title {
+      font-family: var(--font-display);
+      font-size: 1.05rem; font-weight: 700;
+      color: var(--text); margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+    .proj-card-desc {
+      font-size: 0.82rem; color: var(--muted);
+      font-weight: 300; flex: 1; margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    .proj-card-desc strong { color: var(--text); font-weight: 500; }
+
+    .proj-card-tags {
+      display: flex; flex-wrap: wrap; gap: 0.35rem;
+      margin-bottom: 1.25rem;
+    }
+    .proj-card-tag {
+      font-size: 0.66rem; font-weight: 600;
+      padding: 0.2rem 0.55rem; border-radius: 5px;
+      background: rgba(255,255,255,0.04);
+      color: var(--muted); border: 1px solid var(--border);
+    }
+
+    .proj-card-links { display: flex; gap: 0.6rem; }
+    .proj-card-link {
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--accent2); text-decoration: none;
+      transition: color 0.2s; display: flex; align-items: center; gap: 0.3rem;
+    }
+    .proj-card-link:hover { color: var(--accent); }
+
+    /* ── SINGLE WIDE CARD ── */
+    .proj-wide {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      margin-bottom: 1.5rem;
+      transition: border-color 0.25s, transform 0.25s;
+    }
+    .proj-wide:hover { border-color: rgba(0,229,160,0.3); transform: translateY(-3px); }
+
+    .proj-wide-visual {
+      display: flex; align-items: center; justify-content: center;
+      font-size: 3.5rem; background: var(--surface2);
+      position: relative; overflow: hidden;
+    }
+    .proj-wide-visual::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+      background-size: 20px 20px;
+    }
+    .proj-wide-body { padding: 1.75rem 2rem; }
+
+    /* ─── CTA ───────────────────────────────────── */
+    .cta-section {
+      padding: 5rem 2.5rem;
+      text-align: center;
+    }
+    .cta-box {
+      max-width: 680px; margin: 0 auto;
+      padding: 3.5rem;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px; position: relative; overflow: hidden;
+    }
+    .cta-box::before {
+      content: '';
+      position: absolute; top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background: radial-gradient(circle at 50% 50%, rgba(0,229,160,0.05) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .cta-label { color: var(--accent); font-size: 0.75rem; font-weight: 700; letter-spacing: 0.15em; text-transform: uppercase; margin-bottom: 1rem; }
+    .cta-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.9rem;
+    }
+    .cta-sub { font-size: 0.95rem; color: var(--muted); margin-bottom: 2rem; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* ─── FOOTER ────────────────────────────────── */
+    footer {
+      padding: 2rem 2.5rem;
+      border-top: 1px solid var(--border);
+      display: flex; align-items: center;
+      justify-content: space-between; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-brand { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; color: var(--muted); }
+    .footer-brand span { color: var(--accent); }
+    .footer-copy { font-size: 0.78rem; color: var(--muted); }
+    .footer-links { display: flex; gap: 1.5rem; }
+    .footer-links a { font-size: 0.78rem; color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ─── ANIMATIONS ─────────────────────────────── */
+    .reveal {
+      opacity: 0; transform: translateY(20px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ─── RESPONSIVE ────────────────────────────── */
+    @media (max-width: 900px) {
+      .project-featured { grid-template-columns: 1fr; }
+      .project-featured-visual { min-height: 220px; }
+      .proj-grid { grid-template-columns: 1fr; }
+      .proj-wide { grid-template-columns: 1fr; }
+      .proj-wide-visual { min-height: 120px; }
+    }
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { display: none; }
+      .page-header, .projects-container, .cta-section { padding-left: 1.5rem; padding-right: 1.5rem; }
+      .filter-bar { padding: 0 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── NAV ─────────────────────────────────── -->
+  <nav>
+    <a href="index.html" class="nav-logo">PSW<span>.</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="resume.html">CV</a></li>
+      <li><a href="projects.html" class="active">Projets</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <a href="contact.html" class="nav-cta">Travaillons ensemble</a>
+  </nav>
+
+  <!-- ── PAGE HEADER ─────────────────────────── -->
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="page-eyebrow">Portfolio</div>
+      <h1 class="page-title">Mes Projets</h1>
+      <p class="page-subtitle">Des solutions concrètes à l'intersection de l'IA, du Big Data et du développement web — au service de l'Afrique et au-delà.</p>
+    </div>
+  </div>
+
+  <!-- ── FILTER ──────────────────────────────── -->
+  <div class="filter-bar">
+    <button class="filter-btn active">Tous</button>
+    <button class="filter-btn">API / Dev</button>
+    <button class="filter-btn">IA & ML</button>
+    <button class="filter-btn">Data & BI</button>
+    <button class="filter-btn">NLP</button>
+    <button class="filter-btn">Santé</button>
+  </div>
+
+  <!-- ── PROJECTS ────────────────────────────── -->
+  <div class="projects-container">
+
+    <!-- ── FEATURED : AfricaGeo API ── -->
+    <div class="project-featured reveal">
+      <div class="featured-badge">✦ Nouveau · 2025</div>
+
+      <div class="project-featured-visual">
+        <div class="africa-bg-grid"></div>
+        <div class="africa-glow"></div>
+        <div class="floating-pins">
+          <div class="pin"></div>
+          <div class="pin"></div>
+          <div class="pin"></div>
+          <div class="pin"></div>
+          <div class="pin"></div>
+          <div class="pin"></div>
+        </div>
+        <div class="africa-map-icon">🌍</div>
+        <div class="visual-stats">
+          <div class="vs-item">
+            <div class="vs-num">39</div>
+            <div class="vs-label">Pays</div>
+          </div>
+          <div class="vs-item">
+            <div class="vs-num">GPS</div>
+            <div class="vs-label">Coordonnées</div>
+          </div>
+          <div class="vs-item">
+            <div class="vs-num">API</div>
+            <div class="vs-label">Prête</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project-featured-content">
+        <div class="proj-category">API · Géodonnées · Open Source</div>
+        <h2 class="proj-title">Africa Geo — Découpage Administratif Africain</h2>
+        <p class="proj-desc">
+          Une ressource <strong>clé en main pour les développeurs</strong> : accédez instantanément au découpage administratif complet de <strong>39 pays d'Afrique</strong>. Régions, Départements et Communes avec <strong>coordonnées GPS prêtes</strong> pour vos applications.
+        </p>
+        <ul class="proj-highlights">
+          <li><strong>39 pays africains</strong> couverts et mis à jour</li>
+          <li>Découpage à 3 niveaux : <strong>Régions → Départements → Communes</strong></li>
+          <li><strong>Coordonnées GPS</strong> précises pour chaque entité administrative</li>
+          <li>Données structurées et <strong>prêtes à l'intégration</strong> dans vos apps</li>
+          <li>Interface de documentation claire pour les développeurs</li>
+        </ul>
+        <div class="proj-tags">
+          <span class="proj-tag">Python</span>
+          <span class="proj-tag">API</span>
+          <span class="proj-tag">GeoJSON</span>
+          <span class="proj-tag">GPS</span>
+          <span class="proj-tag">Afrique</span>
+          <span class="proj-tag">Open Data</span>
+          <span class="proj-tag">Vercel</span>
+        </div>
+        <div class="proj-actions">
+          <a href="https://africa-geo-site.vercel.app/" target="_blank" class="btn-primary">
+            Découvrir le projet ↗
+          </a>
+          <a href="https://github.com/SeydouWane" target="_blank" class="btn-ghost">
+            Code source
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── GRID 2 COL ── -->
+    <div class="proj-grid">
+
+      <!-- SmartRH -->
+      <div class="proj-card reveal">
+        <div class="proj-card-visual blue">🤝</div>
+        <div class="proj-card-body">
+          <div class="proj-card-category">IA · RH · ATS</div>
+          <div class="proj-card-title">SmartRH — Gestion Intelligente du Recrutement</div>
+          <p class="proj-card-desc">
+            Plateforme RH complète pour digitaliser et automatiser le recrutement. <strong>Classement automatique des CV</strong> selon la correspondance aux compétences, tableau de bord interactif et génération de liens de candidature.
+          </p>
+          <div class="proj-card-tags">
+            <span class="proj-card-tag">Python</span>
+            <span class="proj-card-tag">ATS</span>
+            <span class="proj-card-tag">NLP</span>
+            <span class="proj-card-tag">Flask</span>
+            <span class="proj-card-tag">PostgreSQL</span>
+          </div>
+          <div class="proj-card-links">
+            <a href="https://github.com/SeydouWane/ProjetSmartRH" target="_blank" class="proj-card-link">
+              ⌨️ GitHub ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chatbot LLM/RAG -->
+      <div class="proj-card reveal">
+        <div class="proj-card-visual purple">💬</div>
+        <div class="proj-card-body">
+          <div class="proj-card-category">NLP · LLM · RAG</div>
+          <div class="proj-card-title">Chatbot de Programme — NLP / Embeddings / RAG</div>
+          <p class="proj-card-desc">
+            Chatbot d'information basé sur le <strong>Traitement Naturel du Langage</strong>, les <strong>Embeddings</strong> et une architecture <strong>RAG</strong>. Répond aux questions fréquentes et oriente les utilisateurs vers les ressources appropriées.
+          </p>
+          <div class="proj-card-tags">
+            <span class="proj-card-tag">LLM</span>
+            <span class="proj-card-tag">RAG</span>
+            <span class="proj-card-tag">Embeddings</span>
+            <span class="proj-card-tag">Python</span>
+            <span class="proj-card-tag">FastAPI</span>
+          </div>
+          <div class="proj-card-links">
+            <a href="https://github.com/SeydouWane" target="_blank" class="proj-card-link">
+              ⌨️ GitHub ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── Imagerie Médicale (wide) ── -->
+    <div class="proj-wide reveal">
+      <div class="proj-wide-visual">🧠</div>
+      <div class="proj-wide-body">
+        <div class="proj-card-category">Deep Learning · Santé · Computer Vision</div>
+        <div class="proj-card-title" style="font-size: 1.2rem; margin-bottom: 0.75rem;">Deep Learning Appliqué à l'Imagerie Médicale</div>
+        <p class="proj-card-desc">
+          Deux axes de recherche : (1) <strong>Détection de la Tuberculose</strong> sur frottis sanguins — collecte, annotation sur Roboflow et algorithme de débruitage. (2) <strong>Prédiction de tumeur cérébrale sur IRM</strong> avec modèle 3D U-Net. Ces travaux ont abouti à une <strong>publication scientifique</strong>.
+        </p>
+        <div style="background: rgba(0,229,160,0.06); border: 1px solid rgba(0,229,160,0.18); border-radius: 10px; padding: 0.75rem 1rem; margin-bottom: 1rem;">
+          <span style="font-size: 0.75rem; color: var(--accent); font-weight: 700; letter-spacing: 0.06em;">📄 ARTICLE PUBLIÉ ·</span>
+          <span style="font-size: 0.82rem; color: var(--muted); font-style: italic;"> SenTumorNet: A Lightweight 3D U-Net Model for Brain Tumor Segmentation in Sub-Saharan African MRI Data</span>
+        </div>
+        <div class="proj-card-tags">
+          <span class="proj-card-tag">PyTorch</span>
+          <span class="proj-card-tag">TensorFlow</span>
+          <span class="proj-card-tag">Computer Vision</span>
+          <span class="proj-card-tag">Roboflow</span>
+          <span class="proj-card-tag">3D U-Net</span>
+          <span class="proj-card-tag">IRM</span>
+          <span class="proj-card-tag">Recherche</span>
+        </div>
+        <div class="proj-card-links" style="margin-top: 0.25rem;">
+          <a href="https://github.com/SeydouWane" target="_blank" class="proj-card-link">⌨️ GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── GRID 2 COL row 2 ── -->
+    <div class="proj-grid">
+
+      <!-- Plateforme Vote ALUMNI -->
+      <div class="proj-card reveal">
+        <div class="proj-card-visual green">🗳️</div>
+        <div class="proj-card-body">
+          <div class="proj-card-category">Dev Web · Python</div>
+          <div class="proj-card-title">Plateforme de Vote ALUMNI — FORCE-N</div>
+          <p class="proj-card-desc">
+            Développement de A à Z d'une plateforme de vote sécurisée pour les anciens apprenants du programme FORCE-N. Dashboard d'administration complet avec suivi en temps réel.
+          </p>
+          <div class="proj-card-tags">
+            <span class="proj-card-tag">Python</span>
+            <span class="proj-card-tag">Flask</span>
+            <span class="proj-card-tag">PostgreSQL</span>
+            <span class="proj-card-tag">Tailwind</span>
+          </div>
+          <div class="proj-card-links">
+            <a href="https://vote.force-n.sn/admin/dashboard" target="_blank" class="proj-card-link">
+              🔗 Voir le site ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Global Africa -->
+      <div class="proj-card reveal">
+        <div class="proj-card-visual amber">🌐</div>
+        <div class="proj-card-body">
+          <div class="proj-card-category">Dev Web · Data</div>
+          <div class="proj-card-title">Plateforme Global Africa — LASPAD</div>
+          <p class="proj-card-desc">
+            Développement de la plateforme de recherche interdisciplinaire <strong>Global Africa</strong> pour le laboratoire LASPAD. Interface de consultation et capitalisation des connaissances.
+          </p>
+          <div class="proj-card-tags">
+            <span class="proj-card-tag">Python</span>
+            <span class="proj-card-tag">Django</span>
+            <span class="proj-card-tag">SQL</span>
+            <span class="proj-card-tag">Recherche</span>
+          </div>
+          <div class="proj-card-links">
+            <a href="https://santaane.mansatoulo.fr/" target="_blank" class="proj-card-link">
+              🔗 Voir le site ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ── GitHub CTA ── -->
+    <div style="text-align: center; margin-top: 2rem;" class="reveal">
+      <p style="font-size: 0.92rem; color: var(--muted); margin-bottom: 1.25rem;">Retrouvez tous mes projets Data, Cloud, ML/DL sur GitHub</p>
+      <a href="https://github.com/SeydouWane" target="_blank" class="btn-primary">
+        ⌨️ Voir mon GitHub complet ↗
+      </a>
+    </div>
+
+  </div>
+
+  <!-- ── CTA ──────────────────────────────────── -->
+  <section class="cta-section">
+    <div class="cta-box reveal">
+      <div class="cta-label">Collaboration</div>
+      <h2 class="cta-title">Une idée de projet ?<br>Construisons-le ensemble</h2>
+      <p class="cta-sub">Data, IA, API, tableau de bord ou développement web — discutons de vos besoins.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn-primary">Me contacter ↗</a>
+        <a href="CV Papa Seydou WANE OCTOBRE 2025.pdf" target="_blank" class="btn-ghost">↓ Télécharger mon CV</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ───────────────────────────────── -->
+  <footer>
+    <div class="footer-brand">PSW<span>.</span> Papa Seydou WANE</div>
+    <div class="footer-copy">© 2025 — Mbour, Sénégal 🇸🇳</div>
+    <div class="footer-links">
+      <a href="resume.html">CV</a>
+      <a href="index.html">Accueil</a>
+      <a href="contact.html">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 90);
+      });
+    }, { threshold: 0.08 });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Filter buttons (UI only — tous visibles par défaut)
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+      });
+    });
+  </script>
+</body>
 </html>
