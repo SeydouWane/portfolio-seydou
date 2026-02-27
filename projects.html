@@ -510,6 +510,162 @@
     }
     .reveal.visible { opacity: 1; transform: none; }
 
+    /* ─── FODE CARD ─────────────────────────────── */
+    .proj-fode {
+      background: var(--surface);
+      border: 1px solid rgba(245,158,11,0.2);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      min-height: 420px;
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative;
+    }
+    .proj-fode:hover { border-color: rgba(245,158,11,0.45); transform: translateY(-3px); box-shadow: 0 20px 60px rgba(245,158,11,0.06); }
+
+    /* Visual left panel */
+    .fode-visual {
+      background: var(--surface2);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 420px;
+      flex-direction: column;
+    }
+
+    .fode-grid-bg {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(245,158,11,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(245,158,11,0.05) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .fode-glow {
+      position: absolute;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(245,158,11,0.12) 0%, transparent 70%);
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    /* Central big number */
+    .fode-center {
+      position: relative; z-index: 2;
+      text-align: center; margin-bottom: 1rem;
+    }
+    .fode-big-num {
+      font-family: var(--font-display);
+      font-size: 4rem; font-weight: 800; line-height: 1;
+      color: var(--accent3);
+      filter: drop-shadow(0 0 20px rgba(245,158,11,0.4));
+    }
+    .fode-big-num span { font-size: 2.5rem; }
+    .fode-big-label {
+      font-size: 0.78rem; font-weight: 600;
+      color: var(--muted); letter-spacing: 0.06em;
+      margin-top: 0.3rem;
+    }
+
+    /* Floating pipeline chips */
+    .fode-chips {
+      position: absolute; inset: 0; pointer-events: none;
+    }
+    .fode-chip {
+      position: absolute;
+      background: rgba(13,17,23,0.9);
+      border: 1px solid rgba(245,158,11,0.2);
+      border-radius: 100px;
+      padding: 0.35rem 0.9rem;
+      font-size: 0.7rem; font-weight: 600;
+      color: var(--muted);
+      display: flex; align-items: center; gap: 0.5rem;
+      backdrop-filter: blur(8px);
+      white-space: nowrap;
+    }
+    .fode-chip-1 { top: 14%; left: 8%; animation: float-chip 5s 0s ease-in-out infinite; }
+    .fode-chip-2 { top: 32%; right: 6%; animation: float-chip 5s 0.8s ease-in-out infinite; }
+    .fode-chip-3 { bottom: 32%; left: 6%; animation: float-chip 5s 1.6s ease-in-out infinite; }
+    .fode-chip-4 { bottom: 14%; right: 8%; animation: float-chip 5s 2.4s ease-in-out infinite; }
+
+    @keyframes float-chip {
+      0%, 100% { transform: translateY(0); opacity: 0.8; }
+      50% { transform: translateY(-5px); opacity: 1; }
+    }
+
+    .fc-dot {
+      width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent); flex-shrink: 0;
+      animation: pulse-fc 2s ease-in-out infinite;
+    }
+    .fc-dot-amber { background: var(--accent3); }
+    .fc-dot-blue { background: var(--accent2); }
+
+    @keyframes pulse-fc {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* Bottom stats row */
+    .fode-stats-row {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: rgba(8,12,16,0.85);
+      border-top: 1px solid rgba(245,158,11,0.12);
+      backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: center;
+      gap: 0; padding: 0.85rem 1rem;
+    }
+    .fode-stat { text-align: center; padding: 0 1.25rem; }
+    .fode-stat-num {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 800;
+      color: var(--accent3); line-height: 1;
+    }
+    .fode-stat-num span { font-size: 0.8rem; }
+    .fode-stat-lbl { font-size: 0.62rem; color: var(--muted); margin-top: 0.15rem; white-space: nowrap; }
+    .fode-stat-sep { width: 1px; height: 2rem; background: var(--border); flex-shrink: 0; }
+
+    /* Code snippet bloc */
+    .fode-code-bloc {
+      background: #0a0e14;
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 10px;
+      overflow: hidden;
+      margin-bottom: 1.25rem;
+      font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+      font-size: 0.76rem;
+    }
+    .fcb-header {
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      padding: 0.5rem 0.9rem;
+      display: flex; align-items: center; gap: 0.4rem;
+    }
+    .fcb-dot { width: 10px; height: 10px; border-radius: 50%; }
+    .fcb-dot.r { background: #ff5f57; }
+    .fcb-dot.a { background: #ffbd2e; }
+    .fcb-dot.g { background: #28c840; }
+    .fcb-filename { font-size: 0.68rem; color: var(--muted); margin-left: 0.5rem; letter-spacing: 0.04em; }
+    .fcb-body { padding: 0.85rem 1rem; display: flex; flex-direction: column; gap: 0.3rem; }
+    .fcb-line { line-height: 1.5; }
+    .fcb-indent { padding-left: 1.25rem; }
+    .fcb-kw { color: #c792ea; }
+    .fcb-fn { color: #82aaff; }
+    .fcb-str { color: #c3e88d; }
+    .fcb-cm { color: #546e7a; font-style: italic; }
+    .fcb-txt { color: #a6accd; }
+
+    /* Right content panel */
+    .fode-content {
+      padding: 2.5rem 2.5rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+
     /* ─── RESPONSIVE ────────────────────────────── */
     @media (max-width: 900px) {
       .project-featured { grid-template-columns: 1fr; }
@@ -517,12 +673,16 @@
       .proj-grid { grid-template-columns: 1fr; }
       .proj-wide { grid-template-columns: 1fr; }
       .proj-wide-visual { min-height: 120px; }
+      .proj-fode { grid-template-columns: 1fr; }
+      .fode-visual { min-height: 240px; }
+      .fode-chip-1, .fode-chip-3 { display: none; }
     }
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
       .nav-links { display: none; }
       .page-header, .projects-container, .cta-section { padding-left: 1.5rem; padding-right: 1.5rem; }
       .filter-bar { padding: 0 1.5rem; }
+      .fode-content { padding: 2rem 1.5rem; }
     }
   </style>
 </head>
@@ -757,6 +917,118 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- ── FODE Platform (featured wide) ── -->
+    <div class="proj-fode reveal">
+
+      <!-- Left : visual -->
+      <div class="fode-visual">
+        <div class="fode-grid-bg"></div>
+        <div class="fode-glow"></div>
+
+        <!-- Central stat bloc -->
+        <div class="fode-center">
+          <div class="fode-big-num">800<span>+</span></div>
+          <div class="fode-big-label">Porteurs de projets financés</div>
+        </div>
+
+        <!-- Floating IA pipeline chips -->
+        <div class="fode-chips">
+          <div class="fode-chip fode-chip-1">
+            <span class="fc-dot"></span> Candidature déposée
+          </div>
+          <div class="fode-chip fode-chip-2">
+            <span class="fc-dot fc-dot-amber"></span> Module IA · Scoring
+          </div>
+          <div class="fode-chip fode-chip-3">
+            <span class="fc-dot fc-dot-blue"></span> Classement automatique
+          </div>
+          <div class="fode-chip fode-chip-4">
+            <span class="fc-dot"></span> Financement 1 000 $
+          </div>
+        </div>
+
+        <!-- Bottom stat row -->
+        <div class="fode-stats-row">
+          <div class="fode-stat">
+            <div class="fode-stat-num">1 000<span>$</span></div>
+            <div class="fode-stat-lbl">Par projet financé</div>
+          </div>
+          <div class="fode-stat-sep"></div>
+          <div class="fode-stat">
+            <div class="fode-stat-num">IA</div>
+            <div class="fode-stat-lbl">Classement Groq / LLM</div>
+          </div>
+          <div class="fode-stat-sep"></div>
+          <div class="fode-stat">
+            <div class="fode-stat-num">N°1</div>
+            <div class="fode-stat-lbl">Incubateur au Sénégal</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right : content -->
+      <div class="fode-content">
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.75rem;">
+          <span class="proj-category" style="margin:0;">IA · Flask · LLM · Incubation</span>
+          <span style="font-size:0.65rem; font-weight:700; letter-spacing:0.1em; text-transform:uppercase; background:rgba(245,158,11,0.12); border:1px solid rgba(245,158,11,0.3); color:var(--accent3); padding:0.2rem 0.65rem; border-radius:100px;">En production</span>
+        </div>
+
+        <h2 class="proj-title" style="font-size:1.55rem;">
+          FODE — Plateforme d'Incubation<br>
+          <span style="color:var(--accent);">+ Module IA de Classement</span>
+        </h2>
+
+        <p class="proj-desc">
+          La <strong>plus grande plateforme d'incubation du Sénégal</strong>, accessible depuis <strong>fa.force-n.sn</strong>. Les porteurs de projets du programme FORCE-N y soumettent leurs candidatures, et un <strong>module IA que j'ai développé</strong> les classe automatiquement selon leur viabilité et leur adéquation aux critères du fond d'amorçage.
+        </p>
+
+        <!-- IA code snippet style highlight -->
+        <div class="fode-code-bloc">
+          <div class="fcb-header">
+            <span class="fcb-dot r"></span><span class="fcb-dot a"></span><span class="fcb-dot g"></span>
+            <span class="fcb-filename">ia_service.py · Module IA FODE</span>
+          </div>
+          <div class="fcb-body">
+            <div class="fcb-line"><span class="fcb-kw">def</span> <span class="fcb-fn">classer_candidatures_par_ia</span><span class="fcb-txt">(appel, candidatures):</span></div>
+            <div class="fcb-line fcb-indent"><span class="fcb-cm"># Jury IA sévère — score 0-100 + critique technique</span></div>
+            <div class="fcb-line fcb-indent"><span class="fcb-txt">client = </span><span class="fcb-fn">Groq</span><span class="fcb-txt">(api_key=GROQ_API_KEY)</span></div>
+            <div class="fcb-line fcb-indent"><span class="fcb-cm"># Classement + commentaire_ia (max 15 mots)</span></div>
+            <div class="fcb-line fcb-indent"><span class="fcb-kw">return</span><span class="fcb-txt"> candidatures.sort(score_ia, </span><span class="fcb-str">desc</span><span class="fcb-txt">)</span></div>
+          </div>
+        </div>
+
+        <ul class="proj-highlights" style="margin-bottom:1.5rem;">
+          <li><strong>800+ porteurs de projets</strong> financés à hauteur de 1 000 $ chacun</li>
+          <li>Module IA de <strong>scoring et classement automatique</strong> des candidatures (Groq / LLM)</li>
+          <li><strong>Critique technique</strong> générée par IA pour chaque projet soumis</li>
+          <li>Architecture Flask · PostgreSQL · Tailwind avec <strong>routes multi-rôles</strong> (Admin, Coach, Partenaire, Étudiant)</li>
+          <li>Gestion complète : candidatures, documents, programmes, whitelists, emails</li>
+          <li>Déployé en production sur <strong>fa.force-n.sn</strong></li>
+        </ul>
+
+        <div class="proj-tags">
+          <span class="proj-tag">Python</span>
+          <span class="proj-tag">Flask</span>
+          <span class="proj-tag">LLM · Groq</span>
+          <span class="proj-tag">IA · Scoring</span>
+          <span class="proj-tag">PostgreSQL</span>
+          <span class="proj-tag">Tailwind CSS</span>
+          <span class="proj-tag">Multi-rôles</span>
+          <span class="proj-tag">Incubation</span>
+          <span class="proj-tag">FORCE-N</span>
+        </div>
+
+        <div class="proj-actions">
+          <a href="https://fa.force-n.sn/auth/login" target="_blank" class="btn-primary">
+            Accéder à la plateforme ↗
+          </a>
+          <a href="https://github.com/SeydouWane" target="_blank" class="btn-ghost">
+            Code source
+          </a>
+        </div>
+      </div>
     </div>
 
     <!-- ── GitHub CTA ── -->
