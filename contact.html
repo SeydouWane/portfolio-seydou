@@ -10,6 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
 
+  <!-- EmailJS SDK -->
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -56,58 +59,24 @@
       backdrop-filter: blur(16px);
       border-bottom: 1px solid var(--border);
     }
-    .nav-logo {
-      font-family: var(--font-display); font-size: 1.1rem; font-weight: 800;
-      letter-spacing: -0.02em; color: var(--text); text-decoration: none;
-    }
+    .nav-logo { font-family: var(--font-display); font-size: 1.1rem; font-weight: 800; letter-spacing: -0.02em; color: var(--text); text-decoration: none; }
     .nav-logo span { color: var(--accent); }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
-    .nav-links a {
-      font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em;
-      text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s;
-    }
+    .nav-links a { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; }
     .nav-links a:hover, .nav-links a.active { color: var(--accent); }
-    .nav-cta {
-      font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--bg); background: var(--accent);
-      padding: 0.55rem 1.4rem; border-radius: 100px; text-decoration: none; transition: opacity 0.2s;
-    }
+    .nav-cta { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--bg); background: var(--accent); padding: 0.55rem 1.4rem; border-radius: 100px; text-decoration: none; transition: opacity 0.2s; }
     .nav-cta:hover { opacity: 0.85; }
 
     /* ─── PAGE HEADER ───────────────────────────── */
-    .page-header {
-      padding: 8rem 2.5rem 4rem;
-      background: var(--surface);
-      border-bottom: 1px solid var(--border);
-      position: relative; overflow: hidden;
-    }
-    .page-header::after {
-      content: '';
-      position: absolute; bottom: -1px; left: 0; right: 0; height: 1px;
-      background: linear-gradient(90deg, transparent, var(--accent), transparent);
-    }
-    .page-header::before {
-      content: '';
-      position: absolute; top: 0; right: -5%;
-      width: 600px; height: 400px;
-      background: radial-gradient(ellipse, rgba(0,229,160,0.06) 0%, transparent 70%);
-      pointer-events: none;
-    }
+    .page-header { padding: 8rem 2.5rem 4rem; background: var(--surface); border-bottom: 1px solid var(--border); position: relative; overflow: hidden; }
+    .page-header::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); }
+    .page-header::before { content: ''; position: absolute; top: 0; right: -5%; width: 600px; height: 400px; background: radial-gradient(ellipse, rgba(0,229,160,0.06) 0%, transparent 70%); pointer-events: none; }
     .page-header-inner { max-width: 1200px; margin: 0 auto; }
-    .page-eyebrow {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em;
-      text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem;
-    }
-    .page-title {
-      font-family: var(--font-display);
-      font-size: clamp(2.5rem, 5vw, 3.5rem);
-      font-weight: 800; letter-spacing: -0.04em; line-height: 1.05;
-    }
-    .page-subtitle {
-      font-size: 1rem; color: var(--muted); margin-top: 0.75rem; max-width: 500px;
-    }
+    .page-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.6rem; }
+    .page-title { font-family: var(--font-display); font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.05; }
+    .page-subtitle { font-size: 1rem; color: var(--muted); margin-top: 0.75rem; max-width: 500px; }
 
-    /* ─── MAIN LAYOUT ───────────────────────────── */
+    /* ─── LAYOUT ────────────────────────────────── */
     .contact-layout {
       max-width: 1200px; margin: 0 auto;
       padding: 4rem 2.5rem;
@@ -117,34 +86,46 @@
       flex: 1;
     }
 
-    /* ─── FORM ──────────────────────────────────── */
+    /* ─── FORM CARD ─────────────────────────────── */
     .form-card {
       background: var(--surface);
       border: 1px solid var(--border);
       border-radius: 20px;
       padding: 3rem;
+      position: relative; overflow: hidden;
     }
+    .form-card::before {
+      content: '';
+      position: absolute; top: -60px; right: -60px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(0,229,160,0.05) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .form-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; margin-bottom: 0.4rem; }
+    .form-subtitle { font-size: 0.88rem; color: var(--muted); margin-bottom: 2.5rem; }
 
-    .form-title {
-      font-family: var(--font-display);
-      font-size: 1.5rem; font-weight: 800;
-      letter-spacing: -0.03em; margin-bottom: 0.4rem;
+    /* Config notice */
+    .config-notice {
+      background: rgba(245,158,11,0.08);
+      border: 1px solid rgba(245,158,11,0.25);
+      border-radius: 10px;
+      padding: 0.85rem 1.1rem;
+      font-size: 0.8rem;
+      color: var(--accent3);
+      margin-bottom: 1.5rem;
+      display: flex; gap: 0.6rem; align-items: flex-start;
     }
-    .form-subtitle {
-      font-size: 0.88rem; color: var(--muted); margin-bottom: 2.5rem;
+    .config-notice code {
+      background: rgba(245,158,11,0.12);
+      padding: 0.1rem 0.35rem;
+      border-radius: 4px;
+      font-family: monospace; font-size: 0.78rem;
     }
 
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
-
     .field { margin-bottom: 1.25rem; }
-    .field label {
-      display: block; font-size: 0.78rem; font-weight: 600;
-      letter-spacing: 0.06em; text-transform: uppercase;
-      color: var(--muted); margin-bottom: 0.5rem;
-    }
-    .field input,
-    .field select,
-    .field textarea {
+    .field label { display: block; font-size: 0.78rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.5rem; }
+    .field input, .field select, .field textarea {
       width: 100%;
       background: var(--surface2);
       border: 1px solid var(--border);
@@ -156,163 +137,115 @@
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
       resize: none;
-      appearance: none;
+      -webkit-appearance: none; appearance: none;
     }
-    .field input::placeholder,
-    .field textarea::placeholder { color: rgba(107,127,163,0.5); }
-    .field input:focus,
-    .field select:focus,
-    .field textarea:focus {
+    .field input::placeholder, .field textarea::placeholder { color: rgba(107,127,163,0.4); }
+    .field input:focus, .field select:focus, .field textarea:focus {
       border-color: var(--border-focus);
       box-shadow: 0 0 0 3px rgba(0,229,160,0.08);
     }
-    .field textarea { height: 140px; }
-    .field select option { background: var(--surface2); }
+    .field textarea { height: 150px; }
+    .field select option { background: var(--surface2); color: var(--text); }
+    .field select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236b7fa3' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 1rem center;
+      padding-right: 2.5rem;
+    }
 
+    /* Field errors */
+    .field.has-error input, .field.has-error select, .field.has-error textarea { border-color: rgba(239,68,68,0.5); }
+    .field-error { font-size: 0.72rem; color: #f87171; margin-top: 0.3rem; display: none; }
+    .field.has-error .field-error { display: block; }
+
+    /* Char counter */
+    .field-footer { display: flex; justify-content: flex-end; margin-top: 0.3rem; }
+    .char-count { font-size: 0.7rem; color: var(--muted); }
+    .char-count.near { color: var(--accent3); }
+    .char-count.over { color: #f87171; }
+
+    /* Submit button */
     .submit-btn {
       width: 100%;
-      display: flex; align-items: center; justify-content: center; gap: 0.6rem;
+      display: flex; align-items: center; justify-content: center; gap: 0.7rem;
       font-family: var(--font-body);
-      font-size: 0.92rem; font-weight: 600;
+      font-size: 0.95rem; font-weight: 600;
       color: var(--bg); background: var(--accent);
       border: none; border-radius: 100px;
-      padding: 1rem 2rem;
+      padding: 1.05rem 2rem;
       cursor: pointer;
       box-shadow: 0 0 30px rgba(0,229,160,0.2);
-      transition: transform 0.2s, box-shadow 0.2s, opacity 0.2s;
+      transition: transform 0.2s, box-shadow 0.2s;
       margin-top: 0.5rem;
     }
-    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(0,229,160,0.35); }
-    .submit-btn:active { transform: scale(0.98); }
+    .submit-btn:hover:not(:disabled) { transform: translateY(-2px); box-shadow: 0 8px 40px rgba(0,229,160,0.35); }
+    .submit-btn:active:not(:disabled) { transform: scale(0.98); }
+    .submit-btn:disabled { opacity: 0.65; cursor: not-allowed; }
 
-    /* Success / Error messages */
+    /* Spinner */
+    .btn-spinner {
+      display: none; width: 16px; height: 16px;
+      border: 2px solid rgba(8,12,16,0.3); border-top-color: var(--bg);
+      border-radius: 50%; animation: spin 0.7s linear infinite; flex-shrink: 0;
+    }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .submit-btn.loading .btn-spinner { display: block; }
+
+    /* Feedback messages */
     .form-message {
-      display: none;
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
-      font-size: 0.88rem;
-      margin-bottom: 1.5rem;
-      font-weight: 500;
+      display: none; border-radius: 12px;
+      padding: 1rem 1.25rem; font-size: 0.88rem;
+      margin-bottom: 1.5rem; font-weight: 500;
+      align-items: flex-start; gap: 0.75rem;
     }
-    .form-message.success {
-      background: rgba(0,229,160,0.08);
-      border: 1px solid rgba(0,229,160,0.25);
-      color: var(--accent);
-    }
-    .form-message.error {
-      background: rgba(239,68,68,0.08);
-      border: 1px solid rgba(239,68,68,0.25);
-      color: #f87171;
-    }
-    .form-message.show { display: block; }
+    .form-message.show { display: flex; }
+    .form-message.success { background: rgba(0,229,160,0.08); border: 1px solid rgba(0,229,160,0.25); color: var(--accent); }
+    .form-message.error   { background: rgba(239,68,68,0.08);  border: 1px solid rgba(239,68,68,0.25);  color: #f87171; }
+    .msg-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .msg-title { font-weight: 700; margin-bottom: 0.15rem; }
+    .msg-sub { font-size: 0.8rem; opacity: 0.85; font-weight: 400; }
 
     /* ─── SIDEBAR ───────────────────────────────── */
     .sidebar { position: sticky; top: 5rem; }
+    .sb-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem; display: block; }
 
-    /* Availability banner */
-    .avail-banner {
-      background: rgba(0,229,160,0.07);
-      border: 1px solid rgba(0,229,160,0.2);
-      border-radius: 14px;
-      padding: 1.25rem 1.5rem;
-      display: flex; align-items: center; gap: 1rem;
-      margin-bottom: 2rem;
-    }
-    .avail-dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 8px rgba(0,229,160,0.8);
-      animation: pulse-dot 2s ease-in-out infinite;
-      flex-shrink: 0;
-    }
-    @keyframes pulse-dot {
-      0%, 100% { box-shadow: 0 0 6px rgba(0,229,160,0.8); }
-      50% { box-shadow: 0 0 16px rgba(0,229,160,0.6); }
-    }
+    .avail-banner { background: rgba(0,229,160,0.07); border: 1px solid rgba(0,229,160,0.2); border-radius: 14px; padding: 1.25rem 1.5rem; display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; }
+    .avail-dot { width: 10px; height: 10px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px rgba(0,229,160,0.8); animation: pulse-dot 2s ease-in-out infinite; flex-shrink: 0; }
+    @keyframes pulse-dot { 0%, 100% { box-shadow: 0 0 6px rgba(0,229,160,0.8); } 50% { box-shadow: 0 0 18px rgba(0,229,160,0.5); } }
     .avail-text { font-size: 0.88rem; font-weight: 600; color: var(--accent); }
     .avail-sub { font-size: 0.75rem; color: var(--muted); margin-top: 0.1rem; }
 
-    /* Contact channels */
-    .channel-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
-
-    .channel-item {
-      display: flex; align-items: center; gap: 1rem;
-      padding: 1.1rem 1.25rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      text-decoration: none; color: var(--text);
-      transition: border-color 0.2s, transform 0.2s;
-    }
-    .channel-item:hover { border-color: var(--border-focus); transform: translateX(4px); }
-
-    .channel-icon {
-      font-size: 1.3rem; min-width: 2rem; text-align: center;
-    }
-
+    .channel-list { display: flex; flex-direction: column; gap: 0.65rem; margin-bottom: 2rem; }
+    .channel-item { display: flex; align-items: center; gap: 1rem; padding: 1rem 1.25rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; text-decoration: none; color: var(--text); transition: border-color 0.2s, transform 0.2s; }
+    .channel-item:hover { transform: translateX(4px); }
+    .channel-icon { font-size: 1.25rem; min-width: 2rem; text-align: center; }
     .channel-info { flex: 1; }
-    .channel-name { font-size: 0.88rem; font-weight: 600; color: var(--text); }
-    .channel-handle { font-size: 0.76rem; color: var(--muted); margin-top: 0.1rem; }
-
-    .channel-arrow {
-      font-size: 0.9rem; color: var(--muted);
-      transition: color 0.2s, transform 0.2s;
-    }
+    .channel-name { font-size: 0.87rem; font-weight: 600; line-height: 1.2; }
+    .channel-handle { font-size: 0.73rem; color: var(--muted); margin-top: 0.1rem; }
+    .channel-arrow { font-size: 0.85rem; color: var(--muted); transition: color 0.2s, transform 0.2s; }
     .channel-item:hover .channel-arrow { color: var(--accent); transform: translateX(3px); }
-
-    /* Specific channel accent on hover */
+    .ch-email:hover    { border-color: rgba(0,229,160,0.35); }
     .ch-whatsapp:hover { border-color: rgba(37,211,102,0.35); }
     .ch-linkedin:hover { border-color: rgba(14,165,233,0.35); }
-    .ch-github:hover { border-color: rgba(255,255,255,0.15); }
-    .ch-zindi:hover { border-color: rgba(245,158,11,0.35); }
-    .ch-email:hover { border-color: rgba(0,229,160,0.35); }
+    .ch-github:hover   { border-color: rgba(200,200,200,0.2); }
+    .ch-zindi:hover    { border-color: rgba(245,158,11,0.35); }
 
-    /* Info bloc */
-    .info-bloc {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 1.5rem;
-      margin-bottom: 2rem;
-    }
-    .info-bloc-title {
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em;
-      text-transform: uppercase; color: var(--muted); margin-bottom: 1rem;
-      padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);
-    }
-    .info-row {
-      display: flex; align-items: center; gap: 0.75rem;
-      font-size: 0.85rem; margin-bottom: 0.6rem;
-    }
+    .info-bloc { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 1.5rem; margin-bottom: 2rem; }
+    .info-bloc-title { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 1px solid var(--border); }
+    .info-row { display: flex; align-items: center; gap: 0.75rem; font-size: 0.84rem; margin-bottom: 0.65rem; }
     .info-row:last-child { margin-bottom: 0; }
-    .info-row span:first-child { font-size: 1rem; min-width: 1.5rem; text-align: center; }
-    .info-row a { color: var(--muted); text-decoration: none; transition: color 0.2s; }
+    .info-ico { font-size: 1rem; min-width: 1.5rem; text-align: center; }
+    .info-row a { color: var(--muted); text-decoration: none; transition: color 0.2s; word-break: break-all; }
     .info-row a:hover { color: var(--accent); }
-    .info-row span.val { color: var(--muted); }
+    .val { color: var(--muted); }
 
-    /* Services rapides */
-    .services-list { display: flex; flex-direction: column; gap: 0.5rem; }
-    .service-item {
-      display: flex; align-items: center; gap: 0.75rem;
-      padding: 0.75rem 1rem;
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      font-size: 0.83rem; color: var(--muted);
-    }
-    .service-item::before {
-      content: '→';
-      color: var(--accent); font-size: 0.75rem;
-    }
+    .services-list { display: flex; flex-direction: column; gap: 0.45rem; }
+    .service-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.7rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; font-size: 0.82rem; color: var(--muted); transition: border-color 0.2s, color 0.2s; }
+    .service-item:hover { border-color: rgba(0,229,160,0.2); color: var(--text); }
+    .service-item::before { content: '→'; color: var(--accent); font-size: 0.72rem; flex-shrink: 0; }
 
     /* ─── FOOTER ────────────────────────────────── */
-    footer {
-      padding: 2rem 2.5rem;
-      border-top: 1px solid var(--border);
-      display: flex; align-items: center;
-      justify-content: space-between; flex-wrap: wrap; gap: 1rem;
-      margin-top: auto;
-    }
+    footer { padding: 2rem 2.5rem; border-top: 1px solid var(--border); display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; margin-top: auto; }
     .footer-brand { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; color: var(--muted); }
     .footer-brand span { color: var(--accent); }
     .footer-copy { font-size: 0.78rem; color: var(--muted); }
@@ -325,18 +258,8 @@
     .reveal.visible { opacity: 1; transform: none; }
 
     /* ─── RESPONSIVE ────────────────────────────── */
-    @media (max-width: 1024px) {
-      .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
-      .sidebar { position: static; }
-    }
-    @media (max-width: 768px) {
-      nav { padding: 1rem 1.5rem; }
-      .nav-links { display: none; }
-      .contact-layout { padding: 2.5rem 1.5rem; }
-      .page-header { padding: 7rem 1.5rem 3rem; }
-      .form-card { padding: 2rem 1.5rem; }
-      .form-row { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 1024px) { .contact-layout { grid-template-columns: 1fr; gap: 3rem; } .sidebar { position: static; } }
+    @media (max-width: 768px) { nav { padding: 1rem 1.5rem; } .nav-links { display: none; } .contact-layout { padding: 2.5rem 1.5rem; } .page-header { padding: 7rem 1.5rem 3rem; } .form-card { padding: 2rem 1.5rem; } .form-row { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
@@ -350,7 +273,7 @@
       <li><a href="projects.html">Projets</a></li>
       <li><a href="contact.html" class="active">Contact</a></li>
     </ul>
-    <a href="https://wa.me/221774532238" target="_blank" class="nav-cta">WhatsApp direct</a>
+    <a href="https://wa.me/221774532238" target="_blank" rel="noopener" class="nav-cta">WhatsApp direct</a>
   </nav>
 
   <!-- ── PAGE HEADER ─────────────────────────── -->
@@ -370,60 +293,107 @@
       <h2 class="form-title">Envoyez-moi un message</h2>
       <p class="form-subtitle">Je réponds dans les 24 heures — en français ou en anglais.</p>
 
+      <!--
+        ╔══════════════════════════════════════════════════════╗
+        ║  CONFIGURATION EMAILJS — 2 étapes restantes          ║
+        ║                                                      ║
+        ║  1. Dans EmailJS → Email Templates → Create Template ║
+        ║     Nommez-le "template_contact" (ou autre)          ║
+        ║     Utilisez ces variables dans le corps :           ║
+        ║       {{from_name}}  {{reply_to}}  {{phone}}         ║
+        ║       {{subject}}    {{message}}                     ║
+        ║                                                      ║
+        ║  2. Dans ce fichier, remplacez dans le <script> :    ║
+        ║     EMAILJS_PUBLIC_KEY  → Account → API Keys         ║
+        ║     EMAILJS_TEMPLATE_ID → votre template ID          ║
+        ╚══════════════════════════════════════════════════════╝
+      -->
+
+      <!-- Avertissement visible si clés non configurées -->
+      <div id="configNotice" class="config-notice" style="display:none;">
+        ⚙️ EmailJS non encore configuré. Ajoutez votre
+        <code>PUBLIC_KEY</code> et <code>TEMPLATE_ID</code>
+        dans le script pour activer l'envoi.
+      </div>
+
+      <!-- Feedback messages -->
       <div id="successMsg" class="form-message success">
-        ✓ Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.
+        <span class="msg-icon">✅</span>
+        <div>
+          <div class="msg-title">Message envoyé avec succès !</div>
+          <div class="msg-sub">Je vous répondrai à <strong id="replyEmail"></strong> dans les plus brefs délais.</div>
+        </div>
       </div>
+
       <div id="errorMsg" class="form-message error">
-        ✗ Une erreur s'est produite. Merci de me contacter directement par email ou WhatsApp.
+        <span class="msg-icon">⚠️</span>
+        <div>
+          <div class="msg-title" id="errorTitle">Erreur d'envoi</div>
+          <div class="msg-sub" id="errorSub">Merci de réessayer ou de me contacter directement par WhatsApp.</div>
+        </div>
       </div>
 
-      <div id="contactForm">
+      <!-- Form fields -->
+      <form id="contactForm" novalidate>
+
         <div class="form-row">
-          <div class="field">
-            <label for="name">Nom complet</label>
-            <input type="text" id="name" placeholder="Votre nom..." />
+          <div class="field" id="field-name">
+            <label for="inp-name">Nom complet <span style="color:var(--accent)">*</span></label>
+            <input type="text" id="inp-name" name="from_name"
+              placeholder="Votre nom complet…" maxlength="80" autocomplete="name" />
+            <span class="field-error">Le nom est obligatoire.</span>
           </div>
-          <div class="field">
-            <label for="email">Adresse email</label>
-            <input type="email" id="email" placeholder="vous@exemple.com" />
+          <div class="field" id="field-email">
+            <label for="inp-email">Adresse email <span style="color:var(--accent)">*</span></label>
+            <input type="email" id="inp-email" name="reply_to"
+              placeholder="vous@exemple.com" maxlength="120" autocomplete="email" />
+            <span class="field-error">Adresse email invalide ou manquante.</span>
           </div>
         </div>
 
         <div class="form-row">
-          <div class="field">
-            <label for="phone">Téléphone</label>
-            <input type="tel" id="phone" placeholder="+221 XX XXX XXXX" />
+          <div class="field" id="field-phone">
+            <label for="inp-phone">Téléphone</label>
+            <input type="tel" id="inp-phone" name="phone"
+              placeholder="+221 XX XXX XXXX" maxlength="30" autocomplete="tel" />
           </div>
-          <div class="field">
-            <label for="subject">Sujet</label>
-            <select id="subject">
+          <div class="field" id="field-subject">
+            <label for="inp-subject">Sujet <span style="color:var(--accent)">*</span></label>
+            <select id="inp-subject" name="subject">
               <option value="" disabled selected>Choisir un sujet…</option>
-              <option value="data">Projet Data / BI</option>
-              <option value="ai">Solution IA / ML</option>
-              <option value="dev">Développement Web / API</option>
-              <option value="formation">Formation / Cours</option>
-              <option value="collaboration">Collaboration / Partenariat</option>
-              <option value="autre">Autre</option>
+              <option value="Projet Data / BI">Projet Data / BI</option>
+              <option value="Solution IA / ML">Solution IA / ML</option>
+              <option value="Développement Web / API">Développement Web / API</option>
+              <option value="Formation / Cours">Formation / Cours</option>
+              <option value="Collaboration / Partenariat">Collaboration / Partenariat</option>
+              <option value="Autre">Autre</option>
             </select>
+            <span class="field-error">Veuillez choisir un sujet.</span>
           </div>
         </div>
 
-        <div class="field">
-          <label for="message">Message</label>
-          <textarea id="message" placeholder="Décrivez votre projet ou votre besoin…"></textarea>
+        <div class="field" id="field-message">
+          <label for="inp-message">Message <span style="color:var(--accent)">*</span></label>
+          <textarea id="inp-message" name="message"
+            placeholder="Décrivez votre projet, votre besoin ou votre question…"
+            maxlength="2000"></textarea>
+          <div class="field-footer">
+            <span class="char-count" id="charCount">0 / 2000</span>
+          </div>
+          <span class="field-error">Le message est obligatoire (10 caractères minimum).</span>
         </div>
 
-        <button class="submit-btn" onclick="handleSubmit()">
-          <span>Envoyer le message</span>
-          <span>→</span>
+        <button type="submit" class="submit-btn" id="submitBtn">
+          <div class="btn-spinner" id="btnSpinner"></div>
+          <span id="btnLabel">Envoyer le message →</span>
         </button>
-      </div>
+
+      </form>
     </div>
 
     <!-- SIDEBAR -->
     <aside class="sidebar">
 
-      <!-- Availability -->
       <div class="avail-banner reveal">
         <div class="avail-dot"></div>
         <div>
@@ -432,22 +402,17 @@
         </div>
       </div>
 
-      <!-- Direct channels -->
-      <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem;" class="reveal">
-        Canaux directs
-      </div>
-
+      <span class="sb-label reveal">Canaux directs</span>
       <div class="channel-list reveal">
-        <a href="mailto:papaseydou.wane@gmail.com" class="channel-item ch-email">
+        <a href="mailto:papaseydou.wane@unchk.edu.sn" class="channel-item ch-email">
           <span class="channel-icon">📧</span>
           <div class="channel-info">
             <div class="channel-name">Email</div>
-            <div class="channel-handle">papaseydou.wane@gmail.com</div>
+            <div class="channel-handle">papaseydou.wane@unchk.edu.sn</div>
           </div>
           <span class="channel-arrow">↗</span>
         </a>
-
-        <a href="https://wa.me/221774532238" target="_blank" class="channel-item ch-whatsapp">
+        <a href="https://wa.me/221774532238" target="_blank" rel="noopener" class="channel-item ch-whatsapp">
           <span class="channel-icon">💬</span>
           <div class="channel-info">
             <div class="channel-name">WhatsApp</div>
@@ -455,8 +420,7 @@
           </div>
           <span class="channel-arrow">↗</span>
         </a>
-
-        <a href="https://www.linkedin.com/in/papa-seydou-wane-37abaa1a1/" target="_blank" class="channel-item ch-linkedin">
+        <a href="https://www.linkedin.com/in/papa-seydou-wane-37abaa1a1/" target="_blank" rel="noopener" class="channel-item ch-linkedin">
           <span class="channel-icon">💼</span>
           <div class="channel-info">
             <div class="channel-name">LinkedIn</div>
@@ -464,8 +428,7 @@
           </div>
           <span class="channel-arrow">↗</span>
         </a>
-
-        <a href="https://github.com/SeydouWane" target="_blank" class="channel-item ch-github">
+        <a href="https://github.com/SeydouWane" target="_blank" rel="noopener" class="channel-item ch-github">
           <span class="channel-icon">⌨️</span>
           <div class="channel-info">
             <div class="channel-name">GitHub</div>
@@ -473,8 +436,7 @@
           </div>
           <span class="channel-arrow">↗</span>
         </a>
-
-        <a href="https://zindi.africa/users/PapaSeydouWANE" target="_blank" class="channel-item ch-zindi">
+        <a href="https://zindi.africa/users/PapaSeydouWANE" target="_blank" rel="noopener" class="channel-item ch-zindi">
           <span class="channel-icon">🏆</span>
           <div class="channel-info">
             <div class="channel-name">Zindi Africa</div>
@@ -484,45 +446,25 @@
         </a>
       </div>
 
-      <!-- Infos -->
       <div class="info-bloc reveal">
         <div class="info-bloc-title">Informations</div>
-        <div class="info-row">
-          <span>📍</span>
-          <span class="val">Mbour, Grand Mbour, Sénégal 🇸🇳</span>
-        </div>
-        <div class="info-row">
-          <span>🕐</span>
-          <span class="val">Fuseau horaire : GMT+0 (Dakar)</span>
-        </div>
-        <div class="info-row">
-          <span>🗣️</span>
-          <span class="val">Français · Anglais</span>
-        </div>
-        <div class="info-row">
-          <span>⚡</span>
-          <span class="val">Réponse sous 24h</span>
-        </div>
-        <div class="info-row">
-          <span>🌐</span>
-          <a href="https://portfolio-seydouwane.onrender.com/" target="_blank">portfolio-seydouwane.onrender.com</a>
-        </div>
+        <div class="info-row"><span class="info-ico">📍</span><span class="val">Mbour, Grand Mbour, Sénégal 🇸🇳</span></div>
+        <div class="info-row"><span class="info-ico">🕐</span><span class="val">Fuseau horaire : GMT+0 (Dakar)</span></div>
+        <div class="info-row"><span class="info-ico">🗣️</span><span class="val">Français · Anglais</span></div>
+        <div class="info-row"><span class="info-ico">⚡</span><span class="val">Réponse sous 24h</span></div>
+        <div class="info-row"><span class="info-ico">🌐</span><a href="https://portfolio-seydouwane.onrender.com/" target="_blank" rel="noopener">portfolio-seydouwane.onrender.com</a></div>
       </div>
 
-      <!-- Services -->
-      <div class="reveal">
-        <div style="font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); margin-bottom: 0.75rem;">
-          Ce que je peux faire pour vous
-        </div>
-        <div class="services-list">
-          <div class="service-item">Analyse de données & Tableaux de bord Power BI</div>
-          <div class="service-item">Développement de solutions IA / ML</div>
-          <div class="service-item">API Python & Applications Web</div>
-          <div class="service-item">Chatbot NLP / LLM / RAG</div>
-          <div class="service-item">Collecte & Pipeline de données</div>
-          <div class="service-item">Formation Excel, Power BI, Python</div>
-          <div class="service-item">Géodonnées Africaines (API AfricaGeo)</div>
-        </div>
+      <span class="sb-label reveal">Ce que je peux faire pour vous</span>
+      <div class="services-list reveal">
+        <div class="service-item">Analyse de données & Tableaux de bord Power BI</div>
+        <div class="service-item">Développement de solutions IA / ML</div>
+        <div class="service-item">API Python & Applications Web (Flask, FastAPI)</div>
+        <div class="service-item">Chatbot NLP / LLM / RAG</div>
+        <div class="service-item">Collecte & Pipeline de données</div>
+        <div class="service-item">Formation Excel, Power BI, Python</div>
+        <div class="service-item">Géodonnées Africaines — API AfricaGeo</div>
+        <div class="service-item">Plateforme d'incubation & Module IA FODE</div>
       </div>
 
     </aside>
@@ -540,43 +482,159 @@
   </footer>
 
   <script>
-    // Scroll reveal
-    const observer = new IntersectionObserver((entries) => {
+    /* ═══════════════════════════════════════════════════════
+       EMAILJS CONFIGURATION
+       ═══════════════════════════════════════════════════════
+       Étape 1 — Public Key :
+         EmailJS → Account → API Keys → Public Key
+         Copiez-la et remplacez "VOTRE_PUBLIC_KEY" ci-dessous.
+
+       Étape 2 — Template ID :
+         EmailJS → Email Templates → Create Template
+         ┌─ Subject  : [Portfolio] Nouveau message de {{from_name}}
+         ├─ Body (recommandé) :
+         │   Nom     : {{from_name}}
+         │   Email   : {{reply_to}}
+         │   Tél     : {{phone}}
+         │   Sujet   : {{subject}}
+         │
+         │   Message :
+         │   {{message}}
+         └─ To email : papaseydou.wane@unchk.edu.sn
+         Copiez le Template ID et remplacez "VOTRE_TEMPLATE_ID".
+
+       Service ID : service_qfhrf3s  ← déjà renseigné
+    ═══════════════════════════════════════════════════════ */
+
+    const EMAILJS_PUBLIC_KEY  = 'VOTRE_PUBLIC_KEY';    // ← Remplacez
+    const EMAILJS_SERVICE_ID  = 'service_qfhrf3s';     // ✅ Déjà configuré
+    const EMAILJS_TEMPLATE_ID = 'VOTRE_TEMPLATE_ID';   // ← Remplacez
+
+    /* ── Init EmailJS ────────────────────────── */
+    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+
+    /* Affiche le notice si clés placeholder détectées */
+    if (EMAILJS_PUBLIC_KEY === 'VOTRE_PUBLIC_KEY' || EMAILJS_TEMPLATE_ID === 'VOTRE_TEMPLATE_ID') {
+      document.getElementById('configNotice').style.display = 'flex';
+    }
+
+    /* ── Scroll reveal ───────────────────────── */
+    const ro = new IntersectionObserver((entries) => {
       entries.forEach((e, i) => {
         if (e.isIntersecting) setTimeout(() => e.target.classList.add('visible'), i * 80);
       });
     }, { threshold: 0.08 });
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach(el => ro.observe(el));
 
-    // Form handler
-    function handleSubmit() {
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const message = document.getElementById('message').value.trim();
+    /* ── Character counter ───────────────────── */
+    const msgArea = document.getElementById('inp-message');
+    const cc      = document.getElementById('charCount');
+    msgArea.addEventListener('input', () => {
+      const n = msgArea.value.length;
+      cc.textContent = `${n} / 2000`;
+      cc.className = 'char-count' + (n >= 1700 && n < 2000 ? ' near' : n >= 2000 ? ' over' : '');
+    });
 
-      if (!name || !email || !message) {
-        document.getElementById('errorMsg').textContent = '✗ Merci de remplir au moins votre nom, email et message.';
-        document.getElementById('errorMsg').classList.add('show');
-        setTimeout(() => document.getElementById('errorMsg').classList.remove('show'), 4000);
-        return;
-      }
+    /* ── Clear error on input ────────────────── */
+    ['name','email','subject','message'].forEach(k => {
+      const el = document.getElementById('inp-' + k);
+      if (el) el.addEventListener('input', () => {
+        document.getElementById('field-' + k)?.classList.remove('has-error');
+      });
+    });
 
-      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!emailRegex.test(email)) {
-        document.getElementById('errorMsg').textContent = '✗ Veuillez entrer une adresse email valide.';
-        document.getElementById('errorMsg').classList.add('show');
-        setTimeout(() => document.getElementById('errorMsg').classList.remove('show'), 4000);
-        return;
-      }
+    /* ── Validation ──────────────────────────── */
+    function validate() {
+      let ok = true;
+      const emailRx = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
 
-      // Redirect to mailto as fallback (formulaire non connecté à un backend)
-      const subject = encodeURIComponent(`[Portfolio] Message de ${name}`);
-      const body = encodeURIComponent(`Nom : ${name}\nEmail : ${email}\n\nMessage :\n${message}`);
-      window.location.href = `mailto:papaseydou.wane@gmail.com?subject=${subject}&body=${body}`;
+      const checks = [
+        { id: 'name',    test: v => v.length > 0,         msg: '' },
+        { id: 'email',   test: v => emailRx.test(v),      msg: '' },
+        { id: 'subject', test: v => v.length > 0,         msg: '' },
+        { id: 'message', test: v => v.trim().length >= 10, msg: '' },
+      ];
 
-      document.getElementById('successMsg').classList.add('show');
-      setTimeout(() => document.getElementById('successMsg').classList.remove('show'), 5000);
+      checks.forEach(c => {
+        const el  = document.getElementById('inp-' + c.id);
+        const val = el ? el.value : '';
+        const err = !c.test(val);
+        document.getElementById('field-' + c.id)?.classList.toggle('has-error', err);
+        if (err) ok = false;
+      });
+
+      return ok;
     }
+
+    /* ── UI helpers ──────────────────────────── */
+    function setLoading(on) {
+      const btn = document.getElementById('submitBtn');
+      const lbl = document.getElementById('btnLabel');
+      const sp  = document.getElementById('btnSpinner');
+      btn.disabled = on;
+      btn.classList.toggle('loading', on);
+      sp.style.display = on ? 'block' : 'none';
+      lbl.textContent  = on ? 'Envoi en cours…' : 'Envoyer le message →';
+    }
+
+    function showFeedback(type, title, sub, email) {
+      document.getElementById('successMsg').classList.remove('show');
+      document.getElementById('errorMsg').classList.remove('show');
+      if (type === 'success') {
+        document.getElementById('replyEmail').textContent = email;
+        document.getElementById('successMsg').classList.add('show');
+        /* Fige le formulaire après succès */
+        document.getElementById('contactForm').style.opacity = '0.45';
+        document.getElementById('contactForm').style.pointerEvents = 'none';
+      } else {
+        document.getElementById('errorTitle').textContent = title;
+        document.getElementById('errorSub').textContent   = sub;
+        document.getElementById('errorMsg').classList.add('show');
+      }
+    }
+
+    /* ── SUBMIT ──────────────────────────────── */
+    document.getElementById('contactForm').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      document.getElementById('successMsg').classList.remove('show');
+      document.getElementById('errorMsg').classList.remove('show');
+
+      if (!validate()) return;
+
+      /* Bloquer si clés non configurées */
+      if (EMAILJS_PUBLIC_KEY === 'VOTRE_PUBLIC_KEY' || EMAILJS_TEMPLATE_ID === 'VOTRE_TEMPLATE_ID') {
+        showFeedback('error',
+          'EmailJS non configuré',
+          'Ajoutez EMAILJS_PUBLIC_KEY et EMAILJS_TEMPLATE_ID dans le script pour activer l\'envoi réel.'
+        );
+        return;
+      }
+
+      const email = document.getElementById('inp-email').value.trim();
+      setLoading(true);
+
+      try {
+        await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+          from_name : document.getElementById('inp-name').value.trim(),
+          reply_to  : email,
+          phone     : document.getElementById('inp-phone').value.trim() || 'Non renseigné',
+          subject   : document.getElementById('inp-subject').value,
+          message   : document.getElementById('inp-message').value.trim(),
+          to_name   : 'Papa Seydou WANE',
+        });
+
+        setLoading(false);
+        showFeedback('success', '', '', email);
+
+      } catch (err) {
+        console.error('EmailJS error:', err);
+        setLoading(false);
+        showFeedback('error',
+          `Erreur d'envoi (${err.status || err.text || 'réseau'})`,
+          'Réessayez dans quelques instants ou contactez-moi directement par WhatsApp ou email.'
+        );
+      }
+    });
   </script>
 </body>
 </html>
