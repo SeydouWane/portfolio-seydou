@@ -666,6 +666,175 @@
       display: flex; flex-direction: column; justify-content: center;
     }
 
+    /* ─── AWATRAP CARD ───────────────────────────── */
+    .proj-awatrap {
+      background: var(--surface);
+      border: 1px solid rgba(232,121,249,0.2);
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      min-height: 400px;
+      transition: border-color 0.25s, transform 0.25s;
+      position: relative;
+    }
+    .proj-awatrap:hover {
+      border-color: rgba(232,121,249,0.45);
+      transform: translateY(-3px);
+      box-shadow: 0 20px 60px rgba(232,121,249,0.07);
+    }
+
+    /* Visual panel */
+    .awatrap-visual {
+      background: var(--surface2);
+      position: relative; overflow: hidden;
+      display: flex; align-items: center; justify-content: center;
+      min-height: 400px; flex-direction: column;
+    }
+
+    .awatrap-bg-grid {
+      position: absolute; inset: 0;
+      background-image:
+        linear-gradient(rgba(232,121,249,0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(232,121,249,0.05) 1px, transparent 1px);
+      background-size: 28px 28px;
+    }
+
+    .awatrap-glow {
+      position: absolute;
+      width: 260px; height: 260px;
+      background: radial-gradient(circle, rgba(232,121,249,0.12) 0%, transparent 70%);
+      top: 50%; left: 50%; transform: translate(-50%, -50%);
+    }
+
+    .awatrap-emoji {
+      font-size: 5.5rem;
+      position: relative; z-index: 2;
+      animation: aw-bounce 2.5s ease-in-out infinite;
+      filter: drop-shadow(0 0 24px rgba(232,121,249,0.5));
+      margin-bottom: 0.5rem;
+    }
+    @keyframes aw-bounce {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25%       { transform: translateY(-10px) rotate(-6deg); }
+      50%       { transform: translateY(-4px) rotate(3deg); }
+      75%       { transform: translateY(-12px) rotate(-3deg); }
+    }
+
+    /* Floating chips */
+    .awatrap-chips { position: absolute; inset: 0; pointer-events: none; }
+    .aw-chip {
+      position: absolute;
+      background: rgba(13,17,23,0.9);
+      border: 1px solid rgba(232,121,249,0.18);
+      border-radius: 100px;
+      padding: 0.32rem 0.85rem;
+      font-size: 0.68rem; font-weight: 600;
+      color: var(--muted);
+      display: flex; align-items: center; gap: 0.45rem;
+      backdrop-filter: blur(8px); white-space: nowrap;
+    }
+    .aw-chip-1 { top: 13%; left: 6%;   animation: float-chip 4.5s 0s   ease-in-out infinite; }
+    .aw-chip-2 { top: 30%; right: 5%;  animation: float-chip 4.5s 0.7s  ease-in-out infinite; }
+    .aw-chip-3 { bottom: 30%; left: 5%; animation: float-chip 4.5s 1.4s ease-in-out infinite; }
+    .aw-chip-4 { bottom: 13%; right: 6%; animation: float-chip 4.5s 2.1s ease-in-out infinite; }
+
+    .aw-dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; animation: pulse-fc 2s ease-in-out infinite; }
+    .aw-purple { background: #e879f9; }
+    .aw-pink   { background: #f43f5e; }
+    .aw-cyan   { background: #22d3ee; }
+    .aw-amber  { background: var(--accent3); }
+
+    /* Bottom stats row */
+    .awatrap-stats-row {
+      position: absolute; bottom: 0; left: 0; right: 0;
+      background: rgba(8,12,16,0.88);
+      border-top: 1px solid rgba(232,121,249,0.12);
+      backdrop-filter: blur(10px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 0.85rem 1rem;
+    }
+    .aw-stat { text-align: center; padding: 0 1.25rem; }
+    .aw-stat-num {
+      font-family: var(--font-display);
+      font-size: 1.1rem; font-weight: 800;
+      color: #e879f9; line-height: 1;
+    }
+    .aw-stat-num span { font-size: 0.8rem; }
+    .aw-stat-lbl { font-size: 0.62rem; color: var(--muted); margin-top: 0.15rem; white-space: nowrap; }
+    .aw-stat-sep { width: 1px; height: 2rem; background: var(--border); flex-shrink: 0; }
+
+    /* Content panel */
+    .awatrap-content {
+      padding: 2.5rem 2.5rem;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+
+    /* Fun badges */
+    .aw-fun-badge {
+      font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      background: rgba(232,121,249,0.1);
+      border: 1px solid rgba(232,121,249,0.28);
+      color: #e879f9;
+      padding: 0.2rem 0.65rem; border-radius: 100px;
+    }
+    .aw-badge-pink {
+      background: rgba(244,63,94,0.1);
+      border-color: rgba(244,63,94,0.28);
+      color: #f43f5e;
+    }
+
+    /* 5 univers */
+    .aw-univers-grid {
+      display: flex; flex-wrap: wrap; gap: 0.5rem;
+      margin-bottom: 1.1rem;
+    }
+    .aw-univers {
+      display: flex; align-items: center; gap: 0.4rem;
+      padding: 0.35rem 0.85rem;
+      background: rgba(232,121,249,0.07);
+      border: 1px solid rgba(232,121,249,0.15);
+      border-radius: 100px;
+      font-size: 0.75rem; font-weight: 600; color: var(--muted);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .aw-univers:hover { border-color: rgba(232,121,249,0.4); color: var(--text); }
+
+    /* Levels */
+    .aw-levels { display: flex; flex-direction: column; gap: 0.45rem; }
+    .aw-level {
+      display: flex; align-items: center; gap: 0.85rem;
+      padding: 0.65rem 1rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      transition: border-color 0.2s;
+    }
+    .aw-level:hover { border-color: rgba(232,121,249,0.25); }
+    .aw-level-ico { font-size: 1rem; flex-shrink: 0; }
+    .aw-level-name { font-size: 0.82rem; font-weight: 700; color: var(--text); }
+    .aw-level-desc { font-size: 0.72rem; color: var(--muted); }
+    .aw-l1 { background: rgba(34,197,94,0.04); }
+    .aw-l2 { background: rgba(245,158,11,0.04); }
+    .aw-l3 { background: rgba(239,68,68,0.04); border-color: rgba(239,68,68,0.1); }
+
+    /* CTA button */
+    .btn-awatrap {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      font-size: 0.85rem; font-weight: 700;
+      color: #080c10; background: linear-gradient(135deg, #e879f9, #f43f5e);
+      padding: 0.85rem 1.75rem; border-radius: 100px;
+      text-decoration: none;
+      box-shadow: 0 0 30px rgba(232,121,249,0.25);
+      transition: transform 0.2s, box-shadow 0.2s;
+      white-space: nowrap;
+    }
+    .btn-awatrap:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 40px rgba(232,121,249,0.4);
+    }
+
     /* ─── RESPONSIVE ────────────────────────────── */
     @media (max-width: 900px) {
       .project-featured { grid-template-columns: 1fr; }
@@ -676,6 +845,9 @@
       .proj-fode { grid-template-columns: 1fr; }
       .fode-visual { min-height: 240px; }
       .fode-chip-1, .fode-chip-3 { display: none; }
+      .proj-awatrap { grid-template-columns: 1fr; }
+      .awatrap-visual { min-height: 220px; }
+      .aw-chip-1, .aw-chip-3 { display: none; }
     }
     @media (max-width: 768px) {
       nav { padding: 1rem 1.5rem; }
@@ -683,6 +855,8 @@
       .page-header, .projects-container, .cta-section { padding-left: 1.5rem; padding-right: 1.5rem; }
       .filter-bar { padding: 0 1.5rem; }
       .fode-content { padding: 2rem 1.5rem; }
+      .awatrap-content { padding: 2rem 1.5rem; }
+      .btn-awatrap { white-space: normal; text-align: center; justify-content: center; }
     }
   </style>
 </head>
@@ -1028,6 +1202,119 @@
             Code source
           </a>
         </div>
+      </div>
+    </div>
+
+    <!-- ── AwaTrap — Projet Fun ── -->
+    <div class="proj-awatrap reveal">
+
+      <!-- Left : visual animé -->
+      <div class="awatrap-visual">
+        <div class="awatrap-bg-grid"></div>
+        <div class="awatrap-glow"></div>
+
+        <!-- Emoji central animé -->
+        <div class="awatrap-emoji">🪤</div>
+
+        <!-- Floating stat chips -->
+        <div class="awatrap-chips">
+          <div class="aw-chip aw-chip-1"><span class="aw-dot aw-purple"></span>75+ questions piégées</div>
+          <div class="aw-chip aw-chip-2"><span class="aw-dot aw-pink"></span>30 sec chrono ⏱️</div>
+          <div class="aw-chip aw-chip-3"><span class="aw-dot aw-cyan"></span>5 univers thématiques</div>
+          <div class="aw-chip aw-chip-4"><span class="aw-dot aw-amber"></span>3 niveaux de difficulté</div>
+        </div>
+
+        <!-- Stats bas -->
+        <div class="awatrap-stats-row">
+          <div class="aw-stat">
+            <div class="aw-stat-num">1000<span>+</span></div>
+            <div class="aw-stat-lbl">Joueurs testés</div>
+          </div>
+          <div class="aw-stat-sep"></div>
+          <div class="aw-stat">
+            <div class="aw-stat-num">12<span>%</span></div>
+            <div class="aw-stat-lbl">Atteignent Expert</div>
+          </div>
+          <div class="aw-stat-sep"></div>
+          <div class="aw-stat">
+            <div class="aw-stat-num">😈</div>
+            <div class="aw-stat-lbl">Niveau de malice</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right : content -->
+      <div class="awatrap-content">
+
+        <div style="display:flex; align-items:center; gap:0.6rem; margin-bottom:0.75rem; flex-wrap:wrap;">
+          <span style="font-size:0.7rem; font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color:#e879f9;">Jeu · Logique · Fun</span>
+          <span class="aw-fun-badge">✦ Fait pour le fun</span>
+          <span class="aw-fun-badge aw-badge-pink">❤️ Fait avec malice</span>
+        </div>
+
+        <h2 class="proj-title" style="font-size:1.55rem; line-height:1.2;">
+          🪤 AwaTrap<br>
+          <span style="color:#e879f9; font-size:1rem; font-weight:600; letter-spacing:0;">Le Jeu des Pièges Logiques</span>
+        </h2>
+
+        <p class="proj-desc" style="margin-bottom:1rem;">
+          <strong style="color:var(--text);">"Tu penses savoir la réponse ? Relis les instructions… 😈"</strong><br>
+          AwaTrap est un jeu de logique et de concentration qui teste ton cerveau à travers une série d'instructions <strong>contradictoires et retorses</strong>. Suis bien l'ordre, annule ce qui doit l'être, et trouve la bonne réponse… si tu en es capable !
+        </p>
+
+        <!-- Univers grid -->
+        <div class="aw-univers-grid">
+          <div class="aw-univers"><span>🔢</span> Maths</div>
+          <div class="aw-univers"><span>🌍</span> Géographie</div>
+          <div class="aw-univers"><span>🎨</span> Couleurs</div>
+          <div class="aw-univers"><span>🐾</span> Animaux</div>
+          <div class="aw-univers"><span>🧠</span> Culture Générale</div>
+        </div>
+
+        <!-- Niveaux -->
+        <div class="aw-levels">
+          <div class="aw-level aw-l1">
+            <span class="aw-level-ico">🟢</span>
+            <div>
+              <div class="aw-level-name">Débutant</div>
+              <div class="aw-level-desc">Pour s'échauffer</div>
+            </div>
+          </div>
+          <div class="aw-level aw-l2">
+            <span class="aw-level-ico">🟡</span>
+            <div>
+              <div class="aw-level-name">Intermédiaire</div>
+              <div class="aw-level-desc">Ça commence à piquer</div>
+            </div>
+          </div>
+          <div class="aw-level aw-l3">
+            <span class="aw-level-ico">🔴</span>
+            <div>
+              <div class="aw-level-name">Expert</div>
+              <div class="aw-level-desc">Pour les courageux — 12% y arrivent</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-tags" style="margin-top:1.25rem; margin-bottom:1.5rem;">
+          <span class="proj-tag">JavaScript</span>
+          <span class="proj-tag">Logique</span>
+          <span class="proj-tag">Quiz</span>
+          <span class="proj-tag">Fun</span>
+          <span class="proj-tag">75+ Questions</span>
+          <span class="proj-tag">Chrono 30s</span>
+        </div>
+
+        <div class="proj-actions">
+          <a href="https://github.com/SeydouWane" target="_blank" class="btn-awatrap">
+            🪤 Jouer à AwaTrap — T'es du bon côté des stats ?
+          </a>
+        </div>
+
+        <p style="font-size:0.73rem; color:var(--muted); margin-top:0.85rem; font-style:italic;">
+          Fait avec ❤️ et beaucoup de malice par Papa Seydou WANE
+        </p>
+
       </div>
     </div>
 
